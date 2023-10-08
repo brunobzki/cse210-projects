@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 
+
+
 class Program
 {   private static List<Entry> entries = new List<Entry>();
     static void Main(string[] args)
@@ -35,7 +37,7 @@ class Program
             if (userNumber == 2)
             {
                 //Display all entries of the Entry list
-                Console.WriteLine("Journal Entries:");
+                Console.WriteLine("\nJournal Entries:\n");
                 foreach (var entry in entries)
                 {
                     Console.WriteLine(entry.GetDisplay());
@@ -121,7 +123,7 @@ class Program
 
         // Display loaded entries saved
 
-        Console.WriteLine("\nLoaded Entries:");
+        Console.WriteLine("\nLoaded Entries:\n");
         foreach (var entry in entries)
         {
             Console.WriteLine(entry.GetDisplay());
