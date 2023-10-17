@@ -2,3 +2,7 @@ Date: 2023-10-11
 Prompt: Write about a hobby or activity that you are passionate about and how it makes you feel.
 Response: some algo de coso
 
+Date: 2023-10-17
+Prompt: Write about something that made you smile today.
+Response: kjkj
+
