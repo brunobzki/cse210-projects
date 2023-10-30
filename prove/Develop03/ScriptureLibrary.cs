@@ -1,7 +1,7 @@
 class ScriptureLibrary
 {
-    
-private List<Scripture> scriptures = new List<Scripture>();
+
+    private List<Scripture> scriptures = new List<Scripture>();
 
     public void AddNewScripture()
     {
@@ -49,7 +49,7 @@ private List<Scripture> scriptures = new List<Scripture>();
             Console.WriteLine("Invalid chapter");
         }
     }
-     public void PracticeRandomScripture()
+    public void PracticeRandomScripture()
     {
         Random random = new Random();
         var randomScripture = GetRandomScripture(random);
@@ -96,5 +96,5 @@ private List<Scripture> scriptures = new List<Scripture>();
         }
         return null;
     }
-    
+
 }

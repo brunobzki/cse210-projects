@@ -3,7 +3,7 @@ using System;
 class Program
 {
     // Define una variable estática de tipo ScriptureLibrary
-   private static ScriptureLibrary library = new ScriptureLibrary();
+    private static ScriptureLibrary library = new ScriptureLibrary();
 
     static void Main(string[] args)
     {
@@ -41,6 +41,6 @@ class Program
         }
     }
 
-   
-   
+
+
 }

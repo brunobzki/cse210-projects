@@ -16,13 +16,13 @@ class Scripture
     }
 
     public string GetRenderedText()
-{
-    List<string> renderedWords = words.Select(word => word.GetRenderedText()).ToList();
-    string verseRange = Reference.VerseStart == Reference.VerseEnd
-        ? $"{Reference.Chapter}:{Reference.VerseStart}"
-        : $"{Reference.Chapter}:{Reference.VerseStart}-{Reference.VerseEnd}";
-    return $"{Reference.Book} {verseRange}: {string.Join(" ", renderedWords)}";
-}
+    {
+        List<string> renderedWords = words.Select(word => word.GetRenderedText()).ToList();
+        string verseRange = Reference.VerseStart == Reference.VerseEnd
+            ? $"{Reference.Chapter}:{Reference.VerseStart}"
+            : $"{Reference.Chapter}:{Reference.VerseStart}-{Reference.VerseEnd}";
+        return $"{Reference.Book} {verseRange}: {string.Join(" ", renderedWords)}";
+    }
     public void HideRandomWords(int wordsToHide, Random random)
     {
         List<Word> visibleWords = words.Where(word => !word.Hidden).ToList();
@@ -40,5 +40,5 @@ class Scripture
     {
         return words.All(word => word.Hidden);
     }
-    
+
 }
