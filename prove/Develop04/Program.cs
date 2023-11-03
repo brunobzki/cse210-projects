@@ -1,24 +1,58 @@
 using System;
 
 class Program
-{
+{   
+    private static BreathingActivity breathingActivity = new BreathingActivity();
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
-        Console.Write("+");
+        while (true) // Loop principal del programa
+        {
+            Console.Clear(); // Limpia la consola en cada iteración
 
-        Thread.Sleep(500);
+            // Mostrar menú y permitir al usuario elegir una actividad
+            Console.WriteLine("Mindfulness Program Menu");
+            Console.WriteLine("1. Breathing Activity");
+            Console.WriteLine("2. Reflection Activity");
+            Console.WriteLine("3. Listing Activity");
+            Console.WriteLine("4. Exit");
 
-        Console.Write("\b \b"); // Erase the + character
-        Console.Write("*"); // Replace it with the - character
-        Thread.Sleep(500);
-        Console.Write("\b \b"); // Erase the + character
-        Console.Write("/"); // Replace it with the - character
-        Thread.Sleep(500);
-        Console.Write("\b \b"); // Erase the + character
-        Console.Write("+"); // Replace it with the - character
-        Thread.Sleep(500);
-        Console.Write("\b \b"); // Erase the + character
-        Console.Write("-"); // Replace it with the - character
+            Console.Write("Enter your choice (1-4): ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    
+                    
+                    breathingActivity.PerformBreathingExercise();
+                    
+                    break;
+
+                case "2":
+                    
+                    ReflectionActivity reflectionActivity = new ReflectionActivity();
+                    
+                    break;
+
+                case "3":
+                    
+                    ListingActivity listingActivity = new ListingActivity();
+                    
+                    break;
+
+                case "4":
+                    
+                    Environment.Exit(0);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice. Please select a valid option.");
+                    break;
+            }
+
+            
+            Console.WriteLine("\nPress Enter to return to the menu.");
+            Console.ReadLine();
+        }
     }
 }
