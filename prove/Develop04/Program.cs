@@ -1,15 +1,16 @@
 using System;
 
 class Program
-{   
-    private static BreathingActivity breathingActivity = new BreathingActivity();
+{
+
     static void Main(string[] args)
     {
-        while (true) // Loop principal del programa
-        {
-            Console.Clear(); // Limpia la consola en cada iteración
 
-            // Mostrar menú y permitir al usuario elegir una actividad
+        while (true)
+        {
+            Console.Clear();
+
+
             Console.WriteLine("Mindfulness Program Menu");
             Console.WriteLine("1. Breathing Activity");
             Console.WriteLine("2. Reflection Activity");
@@ -22,26 +23,28 @@ class Program
             switch (choice)
             {
                 case "1":
-                    
-                    
+
+                    BreathingActivity breathingActivity = new BreathingActivity();
                     breathingActivity.PerformBreathingExercise();
-                    
+
                     break;
 
                 case "2":
-                    
+
                     ReflectionActivity reflectionActivity = new ReflectionActivity();
-                    
+
+
                     break;
 
                 case "3":
-                    
+
                     ListingActivity listingActivity = new ListingActivity();
-                    
+                    listingActivity.DisplayPrompt();
+
                     break;
 
                 case "4":
-                    
+
                     Environment.Exit(0);
                     break;
 
@@ -50,7 +53,7 @@ class Program
                     break;
             }
 
-            
+
             Console.WriteLine("\nPress Enter to return to the menu.");
             Console.ReadLine();
         }

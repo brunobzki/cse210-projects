@@ -8,14 +8,15 @@ public class ListingActivity : MindfulnessActivity
     public ListingActivity()
     {
         Name = "Listing Activity";
-        Description = "This activity involves listing items.";
-        SetDuration(); 
-        ListOfItems = new List<string>();
+        Description = "This activity consists of listing elements. You can write as much as you want about something, a moment or just your thoughts.";
+        SetDuration();
+
+
     }
 
-    public void DisplayPrompt(string prompt)
+    public void DisplayPrompt()
     {
-        Console.WriteLine($"Prompt: {prompt}");
+        Console.WriteLine($"Prompt: ");
     }
 
     public void AddItemToList(string item)
@@ -28,10 +29,7 @@ public class ListingActivity : MindfulnessActivity
         Console.WriteLine($"Number of items listed: {ListOfItems.Count}");
     }
 
-    public void DisplaySpinner()
-    {
-        // Agrega lógica para mostrar un spinner durante las pausas.
-    }
 
-    // Puedes agregar otros métodos y atributos específicos para la actividad de enumeración si es necesario.
+
+    
 }

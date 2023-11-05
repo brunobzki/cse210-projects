@@ -2,9 +2,9 @@ using System;
 
 public class MindfulnessActivity
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public int Duration { get; private set; }
+    protected string Name { get; set; }
+    protected string Description { get; set; }
+    protected int Duration { get; set; }
 
     protected MindfulnessActivity()
     {
@@ -13,25 +13,26 @@ public class MindfulnessActivity
         Duration = 0;
     }
     public void ContDown(string message, int seconds)
-    {   Console.Write(message);
-            for(int index = seconds; index>0; index--)
-            {
-                Console.Write(index);
-                Thread.Sleep(1000);
-                Console.Write("\b");
+    {
+        Console.Write(message);
+        for (int index = seconds; index > 0; index--)
+        {
+            Console.Write(index);
+            Thread.Sleep(1000);
+            Console.Write("\b");
 
-            }
+        }
         Console.Write("\r");
     }
 
     public void DisplayStartMessage()
     {
         Console.WriteLine($"Start {Name} ");
-        Console.WriteLine($"Description: {Description}");
+        Console.WriteLine($"\nDescription: {Description}");
         Console.WriteLine($"Duration: {Duration} seconds");
         Thread.Sleep(5000);
         Console.WriteLine();
-        
+
     }
 
     public void SetDuration()
@@ -42,8 +43,26 @@ public class MindfulnessActivity
 
     public void DisplayEndMessage()
     {
-        Console.WriteLine($"Congratulations! You've completed the {Name} Activity.");
-        Console.WriteLine($"Duration: {Duration} seconds");
-        // Puedes agregar aquí la lógica para mostrar un contador o animación de finalización.
+        Console.WriteLine($"\nCongratulations! You've completed the {Name}.");
+        Console.WriteLine($"Duration of the activity: {Duration} seconds");
+
     }
+    public void DisplaySpinner()
+    {
+
+        for (int i = 0; i < Duration; i++)
+        {
+            if (i >= Duration)
+                break;
+
+            Console.Write("  /  "); Thread.Sleep(250); Console.Write("\r");
+            Console.Write("  -  "); Thread.Sleep(250); Console.Write("\r");
+            Console.Write("  \\  "); Thread.Sleep(250); Console.Write("\r");
+            Console.Write("  |  "); Thread.Sleep(250); Console.Write("\r");
+
+        }
+
+
+    }
+
 }

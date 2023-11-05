@@ -9,12 +9,12 @@ public class BreathingActivity : MindfulnessActivity
         Description = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
         SetDuration();
         DisplayStartMessage();
-        
-        
+
+
     }
 
     public void PerformBreathingExercise()
-    {   
+    {
         Console.WriteLine();
         Console.WriteLine("Get ready to start the breathing exercise.");
         Thread.Sleep(2000);
@@ -28,12 +28,13 @@ public class BreathingActivity : MindfulnessActivity
             ContDown(message, second);
 
         }
-        Console.Write("\r"+ new string(' ', Console.WindowWidth - 1));
+        Console.Write("\r" + new string(' ', Console.WindowWidth - 1));
         Thread.Sleep(2000);
         Console.WriteLine();
 
-        Console.WriteLine("Congratulations! You've completed the Breathing Activity.");
+        DisplayEndMessage();
         Thread.Sleep(2000);
+
     }
 
 
