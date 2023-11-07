@@ -13,7 +13,7 @@ public class ReflectionActivity : MindfulnessActivity
         SetDuration();
         DisplayStartMessage();
         InitializeQuestions();
-        RunActivity();
+        RunActivity(DisplayReflectionQuestion);
 
 
     }
@@ -99,22 +99,6 @@ public class ReflectionActivity : MindfulnessActivity
         DisplayEndMessage();
         Thread.Sleep(2000);
     }
-    public void RunActivity()
-    {
-        do
-        {
-            DisplayReflectionQuestion();
-            Console.WriteLine("Would you like to repeat the activity? (yes/no)");
-            string response = Console.ReadLine().ToLower();
-            if (response != "yes")
-            {
-                Console.WriteLine("Activity completed. Goodbye!");
-                break;
-            }
-        } while (true);
-    }
-
-
 }
 
 

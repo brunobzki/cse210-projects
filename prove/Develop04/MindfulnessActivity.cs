@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+
 
 public class MindfulnessActivity
 {
@@ -27,9 +29,10 @@ public class MindfulnessActivity
 
     public void DisplayStartMessage()
     {
-        Console.WriteLine($"Start {Name} ");
+        Console.Clear();
+        Console.WriteLine($"\nStart {Name} ");
         Console.WriteLine($"\nDescription: {Description}");
-        Console.WriteLine($"Duration: {Duration} seconds");
+        Console.WriteLine($"\nDuration: {Duration} seconds");
         Thread.Sleep(5000);
         Console.WriteLine();
 
@@ -50,6 +53,7 @@ public class MindfulnessActivity
     public void DisplaySpinner()
     {
 
+
         for (int i = 0; i < Duration; i++)
         {
             if (i >= Duration)
@@ -62,7 +66,19 @@ public class MindfulnessActivity
 
         }
 
-
     }
-
+    public void RunActivity(Action displayActivity)
+    {
+        do
+        {
+            displayActivity();
+            Console.WriteLine("Would you like to repeat the activity? (yes/no)");
+            string response = Console.ReadLine().ToLower();
+            if (response != "yes")
+            {
+                Console.WriteLine("Activity completed. Goodbye!");
+                break;
+            }
+        } while (true);
+    }
 }

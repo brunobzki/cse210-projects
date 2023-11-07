@@ -9,8 +9,6 @@ class Program
         while (true)
         {
             Console.Clear();
-
-
             Console.WriteLine("Mindfulness Program Menu");
             Console.WriteLine("1. Breathing Activity");
             Console.WriteLine("2. Reflection Activity");
@@ -25,22 +23,16 @@ class Program
                 case "1":
 
                     BreathingActivity breathingActivity = new BreathingActivity();
-                    breathingActivity.PerformBreathingExercise();
-
                     break;
 
                 case "2":
 
                     ReflectionActivity reflectionActivity = new ReflectionActivity();
-
-
                     break;
 
                 case "3":
 
                     ListingActivity listingActivity = new ListingActivity();
-                    listingActivity.DisplayPrompt();
-
                     break;
 
                 case "4":
@@ -52,7 +44,6 @@ class Program
                     Console.WriteLine("Invalid choice. Please select a valid option.");
                     break;
             }
-
 
             Console.WriteLine("\nPress Enter to return to the menu.");
             Console.ReadLine();

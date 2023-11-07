@@ -9,8 +9,7 @@ public class BreathingActivity : MindfulnessActivity
         Description = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
         SetDuration();
         DisplayStartMessage();
-
-
+        RunActivity(PerformBreathingExercise);
     }
 
     public void PerformBreathingExercise()
@@ -22,9 +21,9 @@ public class BreathingActivity : MindfulnessActivity
         for (int seconds = 0; seconds < Duration; seconds += 10)
         {
             int second = 5;
-            string message = "Breathe in... ";
+            string message = "Breathe in...  ";
             ContDown(message, second);
-            message = "Breathe out.. ";
+            message = "Breathe out..  ";
             ContDown(message, second);
 
         }
