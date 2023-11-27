@@ -1,7 +1,7 @@
 using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using System.Linq;
+
 
 class Goal
 {
@@ -43,8 +43,8 @@ class Goal
         Console.Write("Enter Target Value: ");
         int targetValue = int.Parse(Console.ReadLine());
 
-        Console.Write("Enter Deadline (yyyy-MM-dd): ");
-        DateTime deadline = DateTime.ParseExact(Console.ReadLine(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+        Console.Write("Enter Deadline (yyyy-mm-dd): ");
+        DateTime deadline = DateTime.ParseExact(Console.ReadLine(), "yyyy-MM-dd", CultureInfo.InvariantCulture).Date;
 
 
         switch (choice)
@@ -105,7 +105,8 @@ class Goal
         {
             foreach (var activity in activities)
             {
-                writer.WriteLine($"{activity.Name},{activity.Type},{activity.TargetValue},{activity.BonusPoints},{activity.Completed},{activity.CurrentValue},{activity.TimesCompleted}");
+                string formattedDate = activity.Deadline.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                writer.WriteLine($"{activity.Name},{activity.Type},{activity.TargetValue},{activity.BonusPoints},{activity.Completed},{activity.CurrentValue},{activity.TimesCompleted},{formattedDate}");
             }
         }
     }
@@ -128,15 +129,15 @@ class Goal
                     switch (type)
                     {
                         case GoalType.Simple:
-                            activity = new SimpleGoal(values[0], int.Parse(values[2]));
+                            activity = new SimpleGoal(values[0], int.Parse(values[2]), DateTime.ParseExact(values[7], "yyyy-MM-dd", CultureInfo.InvariantCulture));
                             break;
 
                         case GoalType.Eternal:
-                            activity = new EternalGoal(values[0], int.Parse(values[2]));
+                            activity = new EternalGoal(values[0], int.Parse(values[2]), DateTime.ParseExact(values[7], "yyyy-MM-dd", CultureInfo.InvariantCulture));
                             break;
 
                         case GoalType.Checklist:
-                            activity = new ChecklistGoal(values[0], int.Parse(values[2]), int.Parse(values[3]));
+                            activity = new ChecklistGoal(values[0], int.Parse(values[2]), int.Parse(values[3]), DateTime.ParseExact(values[7], "yyyy-MM-dd", CultureInfo.InvariantCulture));
                             break;
                     }
 

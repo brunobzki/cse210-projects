@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
+using System.Globalization;
 class Program
 {
     static void Main()
@@ -61,6 +59,7 @@ abstract class Activity
     public bool Completed { get; set; }
     public int BonusPoints { get; set; }
     public int TimesCompleted { get; set; }
+    
 
     public Activity(string name, GoalType type, int targetValue, DateTime deadline, int bonusPoints = 0)
     {

@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using System.Globalization;
 class ChecklistGoal : Activity
 {
     public ChecklistGoal(string name, int targetValue, int bonusPoints,DateTime deadline) : base(name, GoalType.Checklist, targetValue, deadline, bonusPoints) { }
