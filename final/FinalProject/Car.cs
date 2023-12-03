@@ -11,5 +11,11 @@ class Car : Vehicle
         _transmissionType = transmissionType;
         _fleet = new Fleet();
     }
+        public override void PerformService()
+    {
+        Console.WriteLine("Check ligths of the car...");
+        Console.WriteLine("Check oil level...");
+        Console.WriteLine("Check tires levels...");
+    }
 
 }
