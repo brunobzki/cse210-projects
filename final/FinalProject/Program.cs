@@ -1,29 +1,29 @@
+
+
 class Program
-
 {
-    static void Main()
+    static void Main(string[] args)
     {
-
-        List<MaintenanceRecord> maintenanceRecords = new List<MaintenanceRecord>();
-
-        List<Reminder> reminders = new List<Reminder>();
+        DateTime date = DateTime.Now;
+        Mechanic mechanicInst = new Mechanic("", "");
+        Reminder reminder = new Reminder();
         Fleet fleetManager = new Fleet();
+        MaintenanceRecord maintenanceRecord = new MaintenanceRecord(date, "serviceType", 0, 0);
+        List<Mechanic> mechanicsAvailable = mechanicInst.MechanicsList;
+        List<Vehicle> vehiclesForMaintenance = fleetManager.GetVehicles();
+        string filePath = "maintenance_records.txt";
+        string filePathLoad = "vehicles.txt";
+        fleetManager.LoadVehiclesFromFile(filePathLoad);
+
         while (true)
         {
-            Console.WriteLine("Menu:");
-            Console.WriteLine("1. Create a vehicle");
-            Console.WriteLine("2. See all vehicle");
-            Console.WriteLine("3. Make a service reminder");
-            Console.WriteLine("4. Record a mantenace");
-            Console.WriteLine("5. Crete mechanics");
-            Console.WriteLine("6. Exit");
-            Console.Write("Select a option: ");
-
+            Console.Clear();
+            ShowMenu();
             int option;
             if (!int.TryParse(Console.ReadLine(), out option))
             {
                 Console.WriteLine("Please enter a valid option.");
-                continue;
+
             }
 
             switch (option)
@@ -35,23 +35,18 @@ class Program
                     fleetManager.DisplayInformation();
                     break;
                 case 3:
-
+                    reminder.CreateServiceReminder(fleetManager.GetVehicles());
                     break;
                 case 4:
-                    DateTime date = DateTime.Now;
-                    string serviceType = "base";
-
-                    List<Vehicle> vehiclesForMaintenance = fleetManager.GetVehicles();
-
-                    MaintenanceRecord maintenanceRecord = new MaintenanceRecord(date, serviceType, 0, 0);
-                    maintenanceRecord.RecordMaintenance(vehiclesForMaintenance);
-                    string filePath = "maintenance_records.txt"; // Ruta del archivo donde se guardarán los registros
+                    maintenanceRecord.RecordMaintenance(vehiclesForMaintenance, mechanicsAvailable);
                     maintenanceRecord.SaveMaintenanceRecord(filePath);
                     break;
                 case 5:
-
+                    Mechanic newMechanic = mechanicInst.CreateNewMechanic();
+                    mechanicInst.AddMechanicToList(newMechanic);
                     break;
                 case 6:
+                    fleetManager.SaveVehiclesToFile(filePathLoad);
                     Console.WriteLine("Bye Bye");
                     return;
                 default:
@@ -60,27 +55,15 @@ class Program
             }
         }
     }
-    public void DisplayInformation(Fleet fleet)
+    static void ShowMenu()
     {
-        Console.WriteLine("Information about the Fleet:");
-
-        List<Vehicle> vehicles = fleet.GetVehicles();
-
-
-        if (vehicles.Count == 0)
-        {
-            Console.WriteLine("The fleet is empty.");
-            return;
-        }
-
-        foreach (Vehicle vehicle in vehicles)
-        {
-            Console.WriteLine($"Vehicle: {vehicle.Brand} {vehicle.Model}, Year: {vehicle.Year}, Mileage: {vehicle.Mileage}");
-        }
-    }
-
-    public void ScheduleReminder(Reminder reminder)
-    {
-
+        Console.WriteLine("Menu:");
+        Console.WriteLine("1. Create a vehicle");
+        Console.WriteLine("2. See all vehicle");
+        Console.WriteLine("3. Make a service reminder");
+        Console.WriteLine("4. Record a mantenace (create a mechanic first)");
+        Console.WriteLine("5. Create mechanics");
+        Console.WriteLine("6. Exit");
+        Console.Write("Select a option: ");
     }
 }

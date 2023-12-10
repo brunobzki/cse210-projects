@@ -15,23 +15,25 @@ class Vehicle
         _fuelType = fuelType;
     }
 
-    public virtual void PerformService(){
+    public virtual void PerformService()
+    {
 
     }
-    public virtual void addNewVehicle(){
+    public virtual void addNewVehicle()
+    {
 
     }
-     public void UpdateMileage(double newMileage)
+    public void UpdateMileage(double newMileage)
     {
         _mileage = newMileage;
     }
-    
+
     public virtual string GetDetails()
     {
         return $"Brand: {_brand}, Model: {_model}, Year: {_year}, Mileage: {_mileage}, Fuel Type: {_fuelType}";
     }
 
-    
+
     public string Brand => _brand;
     public string Model => _model;
     public int Year => _year;
